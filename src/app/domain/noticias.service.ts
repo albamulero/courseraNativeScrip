@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-//import couchbaseModule = require("nativescript-couchbase");
+//import couchbaseModule = require("nativescrip-couchbase");
 import { getJSON, request } from "tns-core-modules/http";
+import * as couchbaseModule from "nativescript-couchbase";
+
 
 const sqlite = require("nativescript-sqlite");
 
@@ -8,10 +10,10 @@ const sqlite = require("nativescript-sqlite");
 
 export class NoticiasService {
     api: string = "https://9fe4f380049e.ngrok.io";
-    //database: couchbaseModule.Couchbase;
+    database: couchbaseModule.Couchbase;
     
     constructor() {
-        //this.database = new couchbaseModule.Couchbase("test-database");
+        this.database = new couchbaseModule.Couchbase("test-database");
 
         this.getDb((db) => {
 
@@ -23,11 +25,11 @@ export class NoticiasService {
         
         }, () => console.log("error on getDB"));
 
-        /*this.database.createView("logs", "1", (document, emitter) =>
+        this.database.createView("logs", "1", (document, emitter) =>
             
         emitter.emit(document._id, document));
         const rows = this.database.executeQuery("logs", {limit : 200});
-        console.log("documentos: " + JSON.stringify(rows));*/
+        console.log("documentos: " + JSON.stringify(rows));
 
     }
 
@@ -71,8 +73,8 @@ export class NoticiasService {
             (err, id) => console.log("nuevo id: ", id));
         }, () => console.log("error on getDB"));
  
-        /*const documentId = this.database.createDocument({ texto: s });
-        console.log("nuevo id couchbase: ", documentId);*/
+        const documentId = this.database.createDocument({ texto: s });
+        console.log("nuevo id couchbase: ", documentId);
 
         return getJSON(this.api + "/get?q=" + s);
     }
