@@ -1,50 +1,23 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.Coursera2",
-    "tns-android": {
-      "version": "6.5.0"
-    },
-    "tns-ios": {
-      "version": "6.5.0"
-    }
-  },
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "repository": "<fill-your-repository-here>",
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "lint": "tslint \"src/**/*.ts\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albamulero/NativeScript.git"
+  },
+  "author": "Alba",
+  "license": "ISC",
   "dependencies": {
-    "@angular/animations": "~8.2.0",
-    "@angular/common": "~8.2.0",
-    "@angular/compiler": "~8.2.0",
-    "@angular/core": "~8.2.0",
-    "@angular/forms": "~8.2.0",
-    "@angular/platform-browser": "~8.2.0",
-    "@angular/platform-browser-dynamic": "~8.2.0",
-    "@angular/router": "~8.2.0",
-    "@nativescript/theme": "~2.3.0",
-    "nativescript-angular": "~8.21.0",
-    "nativescript-pulltorefresh": "^2.3.0",
-    "nativescript-toast": "^2.0.0-develop-2",
-    "nativescript-toasts": "^1.0.3",
-    "nativescript-ui-sidedrawer": "~8.0.0",
-    "reflect-metadata": "~0.1.12",
-    "rxjs": "^6.4.0",
-    "search-forms": "^1.0.2",
-    "tns-core-modules": "~6.5.0",
-    "toast": "^0.2.9",
-    "zone.js": "~0.9.1"
+    "cors": "^2.8.5",
+    "express": "4.17.1"
   },
-  "devDependencies": {
-    "@angular/compiler-cli": "~8.2.0",
-    "@ngtools/webpack": "~8.2.0",
-    "codelyzer": "~4.5.0",
-    "nativescript-dev-webpack": "~1.5.0",
-    "node-sass": "^4.7.1",
-    "tslint": "~5.19.0",
-    "typescript": "~3.5.3"
+  "bugs": {
+    "url": "https://github.com/albamulero/NativeScript/issues"
   },
-  "gitHead": "20a65d338ae8f8911087ab6615b89363f864b07b",
-  "readme": "NativeScript Application"
+  "homepage": "https://github.com/albamulero/NativeScript#readme"
 }
