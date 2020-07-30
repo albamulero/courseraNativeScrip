@@ -4,8 +4,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
     selector: "SearchForm",
     moduleId: module.id,
     template: `
-    <TextField [(ngModel)]="textFieldValue" hint="Ingresar texto ..."></TextField>
-    <Button text="Buscar" (tap)="onButtonTap()"></Button>
+        <TextField [(ngModel)]="textFieldValue" hint="Ingresar texto ..."></TextField>
+        <Button text="Buscar" (tap)="onButtonTap()"></Button>
     `
 })
 

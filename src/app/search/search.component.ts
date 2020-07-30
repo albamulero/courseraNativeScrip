@@ -54,9 +54,9 @@ export class SearchComponent implements OnInit {
     }
 
     onItemTap(x):void {
-        //console.dir(x);
+        console.dir(x);
 
-        this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
+        //this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
     }
 
 
