@@ -1,9 +1,12 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Store } from "@ngrx/store";
+import * as Toast from "nativescript-toasts";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { AppState } from "../app.module";
+import { Noticia, NuevaNoticiaAction } from "../domain/noticias-state.model";
 import { NoticiasService } from "../domain/noticias.service";
-import * as Toast from "nativescript-toasts";
-import { Color, View } from "tns-core-modules/ui/core/view/view";
+
 
 @Component({
     selector: "Search",
@@ -15,10 +18,16 @@ import { Color, View } from "tns-core-modules/ui/core/view/view";
 export class SearchComponent implements OnInit {
 
     resultados: Array<string>;
-
+    
     layout: ElementRef; 
 
-    constructor (private noticias: NoticiasService) {
+    constructor (
+        
+        private noticias: NoticiasService,
+        private store: Store<AppState>
+        
+        ) {
+        
         // Use the component constructor to inject providers.
     }
 
@@ -28,6 +37,15 @@ export class SearchComponent implements OnInit {
         /*this.noticias.agregar("Hola");
         this.noticias.agregar("Holaa");
         this.noticias.agregar("Holaaa");*/
+
+        this.store.select((state) => state.noticias.sugerida)
+            .subscribe((data) => {
+                const f = data;
+
+                if (f != null) {
+                    Toast.show({text: "Sugerimos leer: " + f.titulo, duration: Toast.DURATION.SHORT});
+                }
+            });
     }
 
     onDrawerButtonTap(): void {
@@ -36,7 +54,9 @@ export class SearchComponent implements OnInit {
     }
 
     onItemTap(x):void {
-        console.dir(x);
+        //console.dir(x);
+
+        this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
     }
 
 
@@ -58,7 +78,7 @@ export class SearchComponent implements OnInit {
         }));*/
 
         
-        console.dir("buscarAhora ·································· " + s);
+        console.dir("buscarAhora" + s);
         this.noticias.buscar(s).then((r: any) => {
             console.log("resultados buscarAhora: " +JSON.stringify(r));
             this.resultados = r;

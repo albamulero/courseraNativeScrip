@@ -1,9 +1,12 @@
 import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 
 @Component({
-    selector: "SearchFrom",
+    selector: "SearchForm",
     moduleId: module.id,
-    template: '<TextField [(ngModel)]="textFieldValue" hint="Ingresar texto..."></TextField><Button text="Buscar!" (tap)="onButtonTap()"></Button>'
+    template: `
+    <TextField [(ngModel)]="textFieldValue" hint="Ingresar texto ..."></TextField>
+    <Button text="Buscar" (tap)="onButtonTap()"></Button>
+    `
 })
 
 export class SearchFormComponent /*implements OnInit*/ {
